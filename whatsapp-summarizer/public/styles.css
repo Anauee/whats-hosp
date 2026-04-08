@@ -1,0 +1,245 @@
+:root {
+  --primary: #25D366;
+  --primary-dark: #128C7E;
+  --bg-color: #f0f2f5;
+  --panel-bg: #ffffff;
+  --text-main: #111b21;
+  --text-muted: #667781;
+  --sidebar-bg: #ffffff;
+  --border-color: #e9edef;
+  --danger: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  height: 100vh;
+  display: flex;
+}
+
+.app-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.menu {
+  flex: 1;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  padding: 15px 25px;
+  text-align: left;
+  font-size: 1rem;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.nav-btn:hover {
+  background-color: var(--bg-color);
+}
+
+.nav-btn.active {
+  background-color: #e6f7e8;
+  color: var(--primary-dark);
+  border-right: 4px solid var(--primary);
+}
+
+#status-indicator {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.status-dot.connected { background-color: var(--primary); }
+.status-dot.disconnected { background-color: var(--danger); }
+.status-dot.waiting { background-color: #f59e0b; }
+
+/* Main Content */
+.content-area {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.view {
+  display: none;
+}
+.view.active {
+  display: block;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+header p {
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--panel-bg);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+/* WhatsApp QR Section */
+#wa-connection-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background-color: #fafbfc;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+#qr-image {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.loader {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+#wa-connected-msg {
+  text-align: center;
+}
+
+.connected-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.9; }
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+.btn-success {
+  background-color: var(--primary-dark);
+  color: white;
+}
+.btn-danger {
+  background-color: var(--danger);
+  color: white;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-group small {
+  color: var(--text-muted);
+  margin-top: 5px;
+  font-size: 0.8rem;
+}
+
+.feedback-msg {
+  margin-top: 15px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}

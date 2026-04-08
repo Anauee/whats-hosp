@@ -1,0 +1,23 @@
+{
+  "name": "whatsapp-summarizer",
+  "version": "1.0.0",
+  "description": "WhatsApp group summarizer bot",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "baileys": "6.7.21",
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.7",
+    "express": "^5.2.1",
+    "node-cron": "^3.0.3",
+    "openai": "^4.80.0",
+    "pino": "^9.6.0",
+    "qrcode": "^1.5.4",
+    "qrcode-terminal": "^0.12.0"
+  }
+}

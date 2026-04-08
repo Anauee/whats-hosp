@@ -1,0 +1,7 @@
+{
+  "groupName": "Grupo.",
+  "phoneNumber": "5541988218440",
+  "openAiKey": "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",
+  "openAiUrl": "https://openrouter.ai/api/v1",
+  "openAiModel": "qwen/qwen-turbo"
+}

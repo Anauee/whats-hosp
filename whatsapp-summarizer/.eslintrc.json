@@ -1,0 +1,10 @@
+{
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-console": "off",
+    "prefer-const": "error",
+    "no-var": "error",
+    "prefer-template": "error",
+    "no-use-before-define": "error"
+  }
+}
