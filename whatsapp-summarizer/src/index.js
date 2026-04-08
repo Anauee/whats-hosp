@@ -11,6 +11,7 @@ const {
 } = require('baileys');
 const { Boom } = require('@hapi/boom');
 const qrcode = require('qrcode');
+const cron = require('node-cron');
 const { WhatsAppBot } = require('./bot');
 const pino = require('pino');
 
@@ -146,6 +147,21 @@ async function connectToWhatsApp() {
     }
   });
 }
+
+// ---------------- CRON JOBS ----------------
+cron.schedule('0 13 * * *', () => {
+  if (activeBot && connectionStatus === 'connected') {
+    activeBot.sendSummary('almoço');
+  }
+}, { timezone: 'America/Sao_Paulo' });
+
+cron.schedule('0 20 * * *', () => {
+  if (activeBot && connectionStatus === 'connected') {
+    activeBot.sendSummary('noite');
+  }
+}, { timezone: 'America/Sao_Paulo' });
+
+console.log('⏰ Rotinas automáticas de resumo (13:00 e 20:00) estão ativas e blindadas no servidor!');
 
 // ---------------- API ROUTES ----------------
 

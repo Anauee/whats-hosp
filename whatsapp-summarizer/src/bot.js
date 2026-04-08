@@ -1,4 +1,3 @@
-const cron = require('node-cron');
 const Summarizer = require('./summarizer');
 
 let messageBuffer = [];
@@ -64,12 +63,8 @@ class WhatsAppBot {
           }
         }
       });
-
-      // Cron jobs
-      cron.schedule('0 13 * * *', () => this.sendSummary('almoço'), { timezone: 'America/Sao_Paulo' });
-      cron.schedule('0 20 * * *', () => this.sendSummary('noite'), { timezone: 'America/Sao_Paulo' });
       
-      console.log('⏰ Resumos agendados para 13:00 e 20:00 (se houver configuração).');
+      console.log('🔗 Modo de escuta inteligente do bot de mensagens está ativo!');
     }
   }
 
