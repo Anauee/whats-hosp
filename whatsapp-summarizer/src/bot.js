@@ -49,13 +49,14 @@ class WhatsAppBot {
           if (remoteJid && remoteJid === this.groupJid) {
             const sender = msg.key.participant || remoteJid;
             const senderPhone = sender.includes('@') ? sender.split('@')[0] : sender;
+            const senderName = msg.pushName || senderPhone;
             const body = this.getMessageBody(msg);
 
             // Log discreto ou omitir para não sujar o painel (opcional)
-            // console.log(`📨 [${this.groupName}] ${senderPhone}: ${body ? body.substring(0,40) : '[Mídia]'}`);
+            // console.log(`📨 [${this.groupName}] ${senderName}: ${body ? body.substring(0,40) : '[Mídia]'}`);
 
             messageBuffer.push({
-              sender: senderPhone,
+              sender: senderName,
               body: body || `[${msg.type || 'mídia'}]`,
               timestamp: msg.messageTimestamp,
               type: body ? 'text' : 'media',
