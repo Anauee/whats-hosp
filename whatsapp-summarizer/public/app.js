@@ -1,4 +1,37 @@
-// Navigation
+// Login and Navigation Logic
+const loginOverlay = document.getElementById('login-overlay');
+const loginForm = document.getElementById('login-form');
+const loginFeedback = document.getElementById('login-feedback');
+const passwordInput = document.getElementById('login-password');
+
+if (sessionStorage.getItem('logged_in') === 'true') {
+  loginOverlay.style.display = 'none';
+}
+
+loginForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  loginFeedback.style.display = 'none';
+
+  const password = passwordInput.value;
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password })
+    });
+    
+    if (res.ok) {
+      sessionStorage.setItem('logged_in', 'true');
+      loginOverlay.style.display = 'none';
+    } else {
+      loginFeedback.style.display = 'block';
+    }
+  } catch (err) {
+    loginFeedback.innerText = 'Erro ao conectar. Tente novamente.';
+    loginFeedback.style.display = 'block';
+  }
+});
+
 const navBtns = document.querySelectorAll('.nav-btn');
 const views = document.querySelectorAll('.view');
 

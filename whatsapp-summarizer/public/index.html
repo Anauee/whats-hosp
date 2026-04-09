@@ -8,6 +8,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- TELA DE LOGIN OBRIGATÓRIA -->
+  <div id="login-overlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: var(--bg-color, #f0f2f5); display: flex; align-items: center; justify-content: center; z-index: 9999; flex-direction: column;">
+    <div style="background: var(--card-bg, white); padding: 40px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 90%; max-width: 400px; text-align: center;">
+      <h2 style="margin-bottom: 10px; color: var(--primary-dark);">Acesso Restrito</h2>
+      <p style="color: var(--text-muted); margin-bottom: 25px;">Insira a senha do painel para acessar o gerenciador do bot.</p>
+      <form id="login-form">
+        <input type="password" id="login-password" placeholder="Senha do painel" style="width: 100%; box-sizing: border-box; padding: 12px; margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 1rem;" required />
+        <button class="btn btn-primary" type="submit" style="width: 100%; padding: 12px; font-size: 1rem;">Entrar</button>
+        <p id="login-feedback" style="color: var(--danger); margin-top: 15px; font-size: 0.9rem; display: none;">Senha incorreta. Tente novamente.</p>
+      </form>
+    </div>
+  </div>
+
   <div class="app-container">
     <aside class="sidebar">
       <div class="logo">

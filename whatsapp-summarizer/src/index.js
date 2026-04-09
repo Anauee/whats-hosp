@@ -220,6 +220,16 @@ app.post('/api/logout', async (req, res) => {
   }
 });
 
+// 7. Login
+app.post('/api/login', (req, res) => {
+  const adminPassword = process.env.PANEL_PASSWORD || 'admin';
+  if (req.body.password === adminPassword) {
+    res.json({ success: true });
+  } else {
+    res.status(401).json({ error: 'Senha incorreta' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`\n================================`);
   console.log(`🌐 Painel Web do Bot de Resumo`);
